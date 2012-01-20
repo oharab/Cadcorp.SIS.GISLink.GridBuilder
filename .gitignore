@@ -47,3 +47,7 @@ _ReSharper*/
 
 #NuGet
 packages/
+
+#Project specific files
+GridBuilderTest.swd
+Map Modeller.lnk
