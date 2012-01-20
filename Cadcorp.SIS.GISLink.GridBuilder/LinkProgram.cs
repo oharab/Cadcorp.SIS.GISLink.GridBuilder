@@ -13,7 +13,17 @@
         private SisApplication sis;
         public LinkProgram(SisApplication application) 
         {
+            this.sis = application;
+            SisMenuItem gridBuilerMenuItem = new SisMenuItem("Build Grid...",new SisClickHandler(this.showGridBuilderDialog));
+            gridBuilerMenuItem.Help = "Create an overlay of grid squares covering the current selection.";
+            gridBuilerMenuItem.MinStatus = 1;
+            gridBuilerMenuItem.MinSelection = 1;
+            this.sis.ContextMenu.MenuItems.Add(gridBuilerMenuItem);
+        }
 
+        private void showGridBuilderDialog(object sender, SisClickArgs args)
+        {
+            MessageBox.Show("Clicky clicky");
         }
     }
 }
