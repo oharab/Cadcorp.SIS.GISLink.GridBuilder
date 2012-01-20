@@ -35,6 +35,10 @@
     <Reference Include="Cadcorp.SIS.GisLink.Library">
       <HintPath>C:\Program Files\Cadcorp SIS 7.0\Cadcorp.SIS.GisLink.Library.dll</HintPath>
     </Reference>
+    <Reference Include="log4net, Version=1.2.9.0, Culture=neutral, PublicKeyToken=b32731d11ce58905">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\libs\log4net-1.2.11\bin\net\2.0\release\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -42,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GridCalculator.cs" />
     <Compile Include="GridParameters.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +71,9 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Cadcorp.SIS.GISLink.GridBuilder.dll.log4net">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\grid.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -28,18 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtGridSize = new System.Windows.Forms.TextBox();
             this.lblGridSize = new System.Windows.Forms.Label();
             this.btnBuild = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // txtGridSize
             // 
-            this.txtGridSize.Location = new System.Drawing.Point(81, 13);
+            this.txtGridSize.Location = new System.Drawing.Point(81, 14);
             this.txtGridSize.Name = "txtGridSize";
             this.txtGridSize.Size = new System.Drawing.Size(100, 20);
             this.txtGridSize.TabIndex = 0;
+            this.txtGridSize.Text = "1000";
+            this.txtGridSize.Validating += new System.ComponentModel.CancelEventHandler(this.txtGridSize_Validating);
             // 
             // lblGridSize
             // 
@@ -60,9 +65,11 @@
             this.btnBuild.TabIndex = 2;
             this.btnBuild.Text = "Build";
             this.btnBuild.UseVisualStyleBackColor = true;
+            this.btnBuild.Click += new System.EventHandler(this.btnBuild_Click);
             // 
             // btnCancel
             // 
+            this.btnCancel.CausesValidation = false;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Location = new System.Drawing.Point(12, 51);
             this.btnCancel.Name = "btnCancel";
@@ -70,6 +77,11 @@
             this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // ErrorProvider
+            // 
+            this.ErrorProvider.ContainerControl = this;
             // 
             // GridParameters
             // 
@@ -82,9 +94,12 @@
             this.Controls.Add(this.btnBuild);
             this.Controls.Add(this.lblGridSize);
             this.Controls.Add(this.txtGridSize);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "GridParameters";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Grid Parameters";
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -96,5 +111,6 @@
         private System.Windows.Forms.Label lblGridSize;
         private System.Windows.Forms.Button btnBuild;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.ErrorProvider ErrorProvider;
     }
 }
