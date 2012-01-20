@@ -23,7 +23,8 @@
 
         private void showGridBuilderDialog(object sender, SisClickArgs args)
         {
-            MessageBox.Show("Clicky clicky");
+            new GridParameters()
+                .ShowDialog();
         }
     }
 }
